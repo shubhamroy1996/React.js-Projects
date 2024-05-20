@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { EXAMPLES } from "../data";
 import TabButton from "./TabButton";
+import Tabs from "./Tabs";
 
 export default function Examples() {
-  const [selectedTopic, showSelectedButton] = useState();
+  const [selectedTopic, showSelectedTopic] = useState();
 
   function handleSelect(selectedButton) {
-    showSelectedButton(selectedButton);
+    showSelectedTopic(selectedButton);
     //console.log("1  =>", selectedButton);
     //console.log("2  =>", selectedTopic);
   }
@@ -15,6 +16,8 @@ export default function Examples() {
     <section id="examples">
       <h2>Examples</h2>
       <menu>
+        <Tabs buttons={
+          <>
         <TabButton
           isSelected={selectedTopic === "components"}
           onselect={() => handleSelect("components")}
@@ -39,6 +42,8 @@ export default function Examples() {
         >
           State
         </TabButton>
+        </>
+      }></Tabs>
       </menu>
 
       {!selectedTopic ? <p>Please Select a topic </p> : null}
