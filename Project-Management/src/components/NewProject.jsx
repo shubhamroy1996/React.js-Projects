@@ -1,25 +1,25 @@
-export default function NewProject() {
+import ProjectInput from "./ProjectInput";
 
-    return (
-       <>
-       <menu>
-            <li><button>Cancel</button></li>
-            <li><button>Save</button></li>
-       </menu>
-       <div>
-        <p>
-            <label>Title</label>
-            <textarea></textarea>
-        </p>
-        <p>
-            <label>Description</label>
-            <input / >
-        </p>
-        <p>
-            <label>Due Date</label>
-            <input / >
-        </p>
-       </div>
-       </>
-    )
+export default function NewProject() {
+  return (
+    <div className="w-[35rem] mt-16">
+      <menu className=" flex items-center justify-end gap-4 my-4">
+        <li>
+          <button className="text-stone-800 hover:text-stone-950">
+            Cancel
+          </button>
+        </li>
+        <li>
+          <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">
+            Save
+          </button>
+        </li>
+      </menu>
+      <div>
+        <ProjectInput labels="Title" />
+        <ProjectInput labels="Description" textarea />
+        <ProjectInput labels="Due Date" />
+      </div>
+    </div>
+  );
 }
